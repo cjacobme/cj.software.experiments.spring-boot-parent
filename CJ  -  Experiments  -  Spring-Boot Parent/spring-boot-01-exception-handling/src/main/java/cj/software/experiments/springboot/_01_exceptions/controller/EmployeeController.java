@@ -6,10 +6,12 @@ import java.util.SortedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import cj.software.experiments.springboot._01_exceptions.datastore.EmployeeStore;
 import cj.software.experiments.springboot._01_exceptions.model.Employee;
+import cj.software.experiments.springboot._01_exceptions.model.EmployeesDetailGetOutput;
 import cj.software.experiments.springboot._01_exceptions.model.EmployeesGetOutput;
 
 @RestController
@@ -18,7 +20,7 @@ public class EmployeeController
 	@Autowired
 	private EmployeeStore store;
 
-	@GetMapping(path = "employees", produces = MediaType.APPLICATION_XML_VALUE)
+	@GetMapping(value = "employees", produces = MediaType.APPLICATION_XML_VALUE)
 	public EmployeesGetOutput listEmployees()
 	{
 		EmployeesGetOutput lResult = new EmployeesGetOutput();
@@ -28,6 +30,15 @@ public class EmployeeController
 			Employee lEntry = bEmp.getValue();
 			lResult.addEmployees(lEntry);
 		}
+		return lResult;
+	}
+
+	@GetMapping(value = "employees/{id}", produces = MediaType.APPLICATION_XML_VALUE)
+	public EmployeesDetailGetOutput getDetails(@PathVariable(name = "id") Long pId)
+	{
+		Employee lFound = this.store.getEmployee(pId);
+		EmployeesDetailGetOutput lResult = new EmployeesDetailGetOutput();
+		lResult.setEmployee(lFound);
 		return lResult;
 	}
 }

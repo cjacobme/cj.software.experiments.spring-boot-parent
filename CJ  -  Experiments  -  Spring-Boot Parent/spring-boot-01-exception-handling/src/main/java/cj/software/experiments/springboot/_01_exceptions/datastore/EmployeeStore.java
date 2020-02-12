@@ -36,4 +36,10 @@ public class EmployeeStore
 	{
 		return Collections.unmodifiableSortedMap(this.entries);
 	}
+
+	public Employee getEmployee(Long pId)
+	{
+		Employee lResult = this.entries.get(pId);
+		return lResult;
+	}
 }
