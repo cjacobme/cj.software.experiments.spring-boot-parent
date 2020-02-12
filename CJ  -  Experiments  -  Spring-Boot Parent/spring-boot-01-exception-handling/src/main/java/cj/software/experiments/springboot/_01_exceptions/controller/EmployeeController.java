@@ -4,15 +4,19 @@ import java.util.Map.Entry;
 import java.util.SortedMap;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import cj.software.experiments.springboot._01_exceptions.datastore.EmployeeStore;
 import cj.software.experiments.springboot._01_exceptions.model.Employee;
+import cj.software.experiments.springboot._01_exceptions.model.EmployeePostInput;
 import cj.software.experiments.springboot._01_exceptions.model.EmployeesDetailGetOutput;
 import cj.software.experiments.springboot._01_exceptions.model.EmployeesGetOutput;
 
@@ -45,6 +49,13 @@ public class EmployeeController
 		}
 		EmployeesDetailGetOutput lResult = new EmployeesDetailGetOutput();
 		lResult.setEmployee(lFound);
+		return lResult;
+	}
+
+	@PostMapping(value = "employees", consumes = MediaType.APPLICATION_XML_VALUE)
+	public Long saveEmployee(@NotNull @Valid @RequestBody EmployeePostInput pInput)
+	{
+		long lResult = this.store.addEmployee(pInput.getEmployee());
 		return lResult;
 	}
 }

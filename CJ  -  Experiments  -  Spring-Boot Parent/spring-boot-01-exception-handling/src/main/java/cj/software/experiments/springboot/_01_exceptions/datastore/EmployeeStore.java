@@ -22,7 +22,7 @@ public class EmployeeStore
 		this.addEmployee(new Employee(2l, "cba", "fed", "cba.fed@elsewhere.earth"));
 	}
 
-	public void addEmployee(Employee pEmployee)
+	public long addEmployee(Employee pEmployee)
 	{
 		if (pEmployee.getId() == null)
 		{
@@ -30,6 +30,7 @@ public class EmployeeStore
 			pEmployee.setId(lId);
 		}
 		this.entries.put(pEmployee.getId(), pEmployee);
+		return pEmployee.getId();
 	}
 
 	public SortedMap<Long, Employee> getEmployees()
