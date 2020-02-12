@@ -3,6 +3,8 @@ package cj.software.experiments.springboot._01_exceptions.controller;
 import java.util.Map.Entry;
 import java.util.SortedMap;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,9 +36,13 @@ public class EmployeeController
 	}
 
 	@GetMapping(value = "employees/{id}", produces = MediaType.APPLICATION_XML_VALUE)
-	public EmployeesDetailGetOutput getDetails(@PathVariable(name = "id") Long pId)
+	public @Valid EmployeesDetailGetOutput getDetails(@PathVariable(name = "id") Long pId)
 	{
 		Employee lFound = this.store.getEmployee(pId);
+		if (lFound == null)
+		{
+			throw new NotFoundException(String.format("Employee with id %d not found", pId));
+		}
 		EmployeesDetailGetOutput lResult = new EmployeesDetailGetOutput();
 		lResult.setEmployee(lFound);
 		return lResult;
