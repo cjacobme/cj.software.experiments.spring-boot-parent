@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import cj.software.experiments.springboot._01_exceptions.datastore.EmployeeStore;
 import cj.software.experiments.springboot._01_exceptions.model.Employee;
 import cj.software.experiments.springboot._01_exceptions.model.EmployeePostInput;
+import cj.software.experiments.springboot._01_exceptions.model.EmployeePostOutput;
 import cj.software.experiments.springboot._01_exceptions.model.EmployeesDetailGetOutput;
 import cj.software.experiments.springboot._01_exceptions.model.EmployeesGetOutput;
 
@@ -53,9 +54,11 @@ public class EmployeeController
 	}
 
 	@PostMapping(value = "employees", consumes = MediaType.APPLICATION_XML_VALUE)
-	public Long saveEmployee(@NotNull @Valid @RequestBody EmployeePostInput pInput)
+	public EmployeePostOutput saveEmployee(@NotNull @Valid @RequestBody EmployeePostInput pInput)
 	{
-		long lResult = this.store.addEmployee(pInput.getEmployee());
+		long lId = this.store.addEmployee(pInput.getEmployee());
+		EmployeePostOutput lResult = new EmployeePostOutput();
+		lResult.setId(lId);
 		return lResult;
 	}
 }
