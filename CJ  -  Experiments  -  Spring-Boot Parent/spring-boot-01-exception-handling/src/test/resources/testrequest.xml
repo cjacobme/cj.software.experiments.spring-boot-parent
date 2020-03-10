@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- the following request has to be POST-invoked with http://localhost:8080/ws -->
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				  xmlns:cj="http://cj.software.experiments.soap/countries">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cj:getCountryRequest>
+         <cj:name>UK</cj:name>
+      </cj:getCountryRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
