@@ -27,5 +27,6 @@
 	</properties>
 	<modules>
 		<module>spring-boot-01-exception-handling</module>
+		<module>spring-boot-02-soap-service</module>
 	</modules>
 </project>
