@@ -1,0 +1,27 @@
+Postman: GET-Request with this URL:
+	http://localhost:8080/ws
+
+(I don't know where the "ws" came from)
+
+Header in the GET-Request: content-type = text/xml
+
+Body of the request:
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				  xmlns:cj="http://cj.software.experiments.soap/countries">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cj:getCountryRequest>
+         <cj:name>UKx</cj:name>
+      </cj:getCountryRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+
+
+Response from Server is:
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns2:getCountryResponse xmlns:ns2="http://cj.software.experiments.soap/countries"/>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
