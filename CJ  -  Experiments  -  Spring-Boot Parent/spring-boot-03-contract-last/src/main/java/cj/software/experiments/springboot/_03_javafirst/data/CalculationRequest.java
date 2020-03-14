@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.migesok.jaxb.adapter.javatime.LocalDateTimeXmlAdapter;
 
-@XmlRootElement(name = "calculation-request")
+@XmlRootElement(name = "calculation-request-in")
 @XmlType(name = "", propOrder =
 { "businessKey", "dueTimestamp", "data"
 })

@@ -90,16 +90,35 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>jaxb2-maven-plugin</artifactId> 
-				<version>2.4</version> <executions> <execution> <id>schemagen</id> <phase>generate-sources</phase> 
-				<goals> <goal>schemagen</goal> </goals> </execution> </executions> <configuration> 
-				<sources> <source>${basedir}/src/main/java/cj/software/experiments/springboot/_03_javafirst/data</source> 
-				<source>${basedir}/src/main/java/cj/software/experiments/springboot/_03_javafirst/controller/dto</source> 
-				<source>${basedir}/src/main/java/cj/software/experiments/springboot/_03_javafirst/controller/ws/dto</source> 
-				</sources> <outputDirectory>${project.build.directory}/classes</outputDirectory> 
-				<transformSchemas> <transformSchema> <uri>http://cj.software.experiments/spring-boot/java-first</uri> 
-				<toPrefix>req</toPrefix> <toFile>request.xsd</toFile> </transformSchema> 
-				</transformSchemas> </configuration> </plugin> -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>schemagen</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>schemagen</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<sources>
+						<source>${basedir}/src/main/java/cj/software/experiments/springboot/_03_javafirst/data</source>
+						<source>${basedir}/src/main/java/cj/software/experiments/springboot/_03_javafirst/controller/dto</source>
+						<source>${basedir}/src/main/java/cj/software/experiments/springboot/_03_javafirst/controller/ws/dto</source>
+					</sources>
+					<outputDirectory>${project.build.directory}/classes</outputDirectory>
+					<transformSchemas>
+						<transformSchema>
+							<uri>http://cj.software.experiments/spring-boot/java-first</uri>
+							<toPrefix>req</toPrefix>
+							<toFile>request.xsd</toFile>
+						</transformSchema>
+					</transformSchemas>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
