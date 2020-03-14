@@ -28,5 +28,6 @@
 	<modules>
 		<module>spring-boot-01-exception-handling</module>
 		<module>spring-boot-02-soap-service</module>
+		<module>spring-boot-03-contract-last</module>
 	</modules>
 </project>
