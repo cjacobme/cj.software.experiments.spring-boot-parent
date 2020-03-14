@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "calculation-request-out")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder =
-{ "id"
+{ "uuid"
 })
 public class CalculationResponse
 		implements
