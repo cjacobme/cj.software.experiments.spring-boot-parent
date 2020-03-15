@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -36,6 +37,7 @@ public class CalculationRequest
 	@XmlElement(name = "due-timestamp", required = true)
 	@NotNull
 	@XmlJavaTypeAdapter(LocalDateTimeXmlAdapter.class)
+	@XmlSchemaType(name = "dateTime")
 	private LocalDateTime dueTimestamp;
 
 	@XmlElementWrapper(name = "data")

@@ -84,6 +84,14 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>target/generated-resources</directory>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -106,13 +114,11 @@
 				<configuration>
 					<sources>
 						<source>${basedir}/src/main/java/cj/software/experiments/springboot/_03_javafirst/data</source>
-						<source>${basedir}/src/main/java/cj/software/experiments/springboot/_03_javafirst/controller/dto</source>
-						<source>${basedir}/src/main/java/cj/software/experiments/springboot/_03_javafirst/controller/ws/dto</source>
 					</sources>
-					<outputDirectory>${project.build.directory}/classes</outputDirectory>
+					<outputDirectory>${project.build.directory}/generated-resources</outputDirectory>
 					<transformSchemas>
 						<transformSchema>
-							<uri>http://cj.software.experiments/spring-boot/java-first</uri>
+							<uri>http://cj.software.experiments/soap/java-first</uri>
 							<toPrefix>req</toPrefix>
 							<toFile>request.xsd</toFile>
 						</transformSchema>
