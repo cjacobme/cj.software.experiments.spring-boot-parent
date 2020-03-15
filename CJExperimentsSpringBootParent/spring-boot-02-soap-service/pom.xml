@@ -62,6 +62,12 @@
 					<sources>
 						<source>${project.basedir}/src/main/resources/countries.xsd</source>
 					</sources>
+					<!-- 
+					<noPackageLevelAnnotations>true</noPackageLevelAnnotations>
+					-->
+					<xjbSources>
+						<xjbSource>${project.basedir}/src/main/resources/global.xjb</xjbSource>
+					</xjbSources>
 				</configuration>
 			</plugin>
 			<plugin>
