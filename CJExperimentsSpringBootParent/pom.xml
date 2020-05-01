@@ -29,5 +29,6 @@
 		<module>spring-boot-01-exception-handling</module>
 		<module>spring-boot-02-soap-service</module>
 		<module>spring-boot-03-contract-last</module>
+		<module>spring-boot-04-cyclic-timer</module>
 	</modules>
 </project>
